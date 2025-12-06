@@ -18,11 +18,11 @@ Region: Frankfurt (EU Central)
 Branch: main
 Root Directory: (laisser vide)
 Runtime: Python 3
-Build Command: ./render_build.sh
-Start Command: python3 run_waitress.py
+Build Command: pip install --upgrade pip && pip install -r requirements.txt
+Start Command: gunicorn pdf_analyzer_backend:app --bind 0.0.0.0:$PORT
 ```
 
-⚠️ **IMPORTANT** : Utilisez bien `python3` et non `python` dans le Start Command !
+⚠️ **IMPORTANT** : Utilisez Gunicorn (plus stable sur Render que Waitress)
 
 ### 3. Variables d'environnement
 

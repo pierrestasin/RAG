@@ -1,1 +1,1 @@
-web: python run_waitress.py
+web: gunicorn pdf_analyzer_backend:app
