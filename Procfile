@@ -1,1 +1,1 @@
-web: python3 -m gunicorn pdf_analyzer_backend:app
+web: python3.13 -m gunicorn pdf_analyzer_backend:app
