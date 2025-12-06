@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,60 +11,61 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
         }
-        
+
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
             text-align: center;
         }
-        
+
         .header h1 {
             font-size: 2em;
             margin-bottom: 10px;
         }
-        
+
         .header p {
             opacity: 0.9;
             font-size: 1.1em;
         }
-        
+
         .main-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             padding: 30px;
         }
-        
-        .upload-section, .chat-section {
+
+        .upload-section,
+        .chat-section {
             background: #f8f9fa;
             padding: 25px;
             border-radius: 15px;
         }
-        
+
         .section-title {
             font-size: 1.3em;
             color: #667eea;
             margin-bottom: 15px;
             font-weight: 600;
         }
-        
+
         .upload-zone {
             border: 3px dashed #667eea;
             border-radius: 10px;
@@ -73,26 +75,26 @@
             transition: all 0.3s;
             background: white;
         }
-        
+
         .upload-zone:hover {
             border-color: #764ba2;
             background: #f0f0ff;
         }
-        
+
         .upload-zone.dragging {
             background: #e0e0ff;
             border-color: #764ba2;
         }
-        
+
         .file-input {
             display: none;
         }
-        
+
         .upload-icon {
             font-size: 3em;
             margin-bottom: 10px;
         }
-        
+
         .btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -105,22 +107,22 @@
             transition: transform 0.2s;
             margin-top: 15px;
         }
-        
+
         .btn:hover {
             transform: scale(1.05);
         }
-        
+
         .btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
-        
+
         .documents-list {
             margin-top: 20px;
             max-height: 200px;
             overflow-y: auto;
         }
-        
+
         .document-item {
             background: white;
             padding: 12px;
@@ -129,18 +131,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         .document-name {
             font-weight: 500;
         }
-        
+
         .document-pages {
             color: #667eea;
             font-size: 0.9em;
         }
-        
+
         .chat-box {
             background: white;
             border-radius: 10px;
@@ -150,35 +152,35 @@
             overflow-y: auto;
             margin-bottom: 15px;
         }
-        
+
         .message {
             margin-bottom: 15px;
             padding: 12px 16px;
             border-radius: 10px;
             max-width: 85%;
         }
-        
+
         .message.user {
             background: #667eea;
             color: white;
             margin-left: auto;
         }
-        
+
         .message.assistant {
             background: #f0f0f0;
             color: #333;
         }
-        
+
         .message-content {
             line-height: 1.6;
             white-space: pre-wrap;
         }
-        
+
         .input-group {
             display: flex;
             gap: 10px;
         }
-        
+
         .question-input {
             flex: 1;
             padding: 12px 20px;
@@ -188,17 +190,17 @@
             outline: none;
             transition: border-color 0.3s;
         }
-        
+
         .question-input:focus {
             border-color: #667eea;
         }
-        
+
         .loading {
             text-align: center;
             color: #667eea;
             padding: 20px;
         }
-        
+
         .spinner {
             border: 3px solid #f3f3f3;
             border-top: 3px solid #667eea;
@@ -208,12 +210,17 @@
             animation: spin 1s linear infinite;
             margin: 0 auto 10px;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
-        
+
         .stats {
             background: white;
             padding: 15px;
@@ -223,23 +230,23 @@
             justify-content: space-around;
             text-align: center;
         }
-        
+
         .stat-item {
             flex: 1;
         }
-        
+
         .stat-number {
             font-size: 1.8em;
             color: #667eea;
             font-weight: bold;
         }
-        
+
         .stat-label {
             font-size: 0.9em;
             color: #666;
             margin-top: 5px;
         }
-        
+
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
@@ -247,31 +254,32 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <h1>📚 Analyseur de Documents Scientifiques</h1>
             <p>Propulsé par Gemini 1.5 Pro - Analysez jusqu'à 50 documents simultanément</p>
         </div>
-        
+
         <div class="main-content">
             <!-- Section Upload -->
             <div class="upload-section">
                 <h2 class="section-title">📄 Charger vos documents</h2>
-                
+
                 <div class="upload-zone" id="uploadZone">
                     <div class="upload-icon">📁</div>
                     <p><strong>Glissez-déposez vos PDFs ici</strong></p>
                     <p style="margin-top: 10px; color: #666;">ou cliquez pour sélectionner</p>
                     <input type="file" id="fileInput" class="file-input" multiple accept=".pdf">
                 </div>
-                
+
                 <button class="btn" id="uploadBtn" disabled>
                     Charger les documents
                 </button>
-                
+
                 <div class="documents-list" id="documentsList"></div>
-                
+
                 <div class="stats" id="stats" style="display: none;">
                     <div class="stat-item">
                         <div class="stat-number" id="docCount">0</div>
@@ -283,43 +291,39 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Section Chat -->
             <div class="chat-section">
                 <h2 class="section-title">💬 Posez vos questions</h2>
-                
+
                 <div class="chat-box" id="chatBox">
                     <div class="message assistant">
-                        <div class="message-content">Bonjour ! Chargez vos documents PDF et posez-moi des questions. Je fournirai des réponses avec citations de pages.</div>
+                        <div class="message-content">Bonjour ! Chargez vos documents PDF et posez-moi des questions. Je
+                            fournirai des réponses avec citations de pages.</div>
                     </div>
                 </div>
-                
+
                 <div class="input-group">
-                    <input 
-                        type="text" 
-                        class="question-input" 
-                        id="questionInput" 
-                        placeholder="Posez votre question..."
-                        disabled
-                    >
+                    <input type="text" class="question-input" id="questionInput" placeholder="Posez votre question..."
+                        disabled>
                     <button class="btn" id="askBtn" disabled>Envoyer</button>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <script>
         // Configuration de l'API
         // En local, on utilise localhost:5000
         // En production, remplacez par l'URL de votre backend Render
         const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-        const API_URL = IS_LOCAL ? 'http://localhost:5000' : 'https://votre-app-backend.onrender.com';
-        
+        const API_URL = IS_LOCAL ? 'http://localhost:5000' : 'https://rag-lqyi.onrender.com';
+
         console.log(`Environment: ${IS_LOCAL ? 'Local' : 'Production'}`);
         console.log(`API URL: ${API_URL}`);
         let uploadedDocuments = [];
         let documentsText = '';
-        
+
         // Éléments DOM
         const uploadZone = document.getElementById('uploadZone');
         const fileInput = document.getElementById('fileInput');
@@ -331,64 +335,64 @@
         const stats = document.getElementById('stats');
         const docCount = document.getElementById('docCount');
         const pageCount = document.getElementById('pageCount');
-        
+
         // Upload zone interactions
         uploadZone.addEventListener('click', () => fileInput.click());
-        
+
         uploadZone.addEventListener('dragover', (e) => {
             e.preventDefault();
             uploadZone.classList.add('dragging');
         });
-        
+
         uploadZone.addEventListener('dragleave', () => {
             uploadZone.classList.remove('dragging');
         });
-        
+
         uploadZone.addEventListener('drop', (e) => {
             e.preventDefault();
             uploadZone.classList.remove('dragging');
             fileInput.files = e.dataTransfer.files;
             uploadBtn.disabled = false;
         });
-        
+
         fileInput.addEventListener('change', () => {
             uploadBtn.disabled = fileInput.files.length === 0;
         });
-        
+
         // Upload documents
         uploadBtn.addEventListener('click', async () => {
             const files = fileInput.files;
             if (files.length === 0) return;
-            
+
             uploadBtn.disabled = true;
             uploadBtn.textContent = 'Chargement...';
-            
+
             const formData = new FormData();
             for (let file of files) {
                 formData.append('files', file);
             }
-            
+
             try {
                 const response = await fetch(`${API_URL}/upload`, {
                     method: 'POST',
                     body: formData
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (data.success) {
                     uploadedDocuments = data.documents;
                     documentsText = data.documents.map(d => d.text).join('\n\n=== DOCUMENT SUIVANT ===\n\n');
-                    
+
                     // Mise à jour UI
                     displayDocuments(data.documents);
                     stats.style.display = 'flex';
                     docCount.textContent = data.documents.length;
                     pageCount.textContent = data.total_pages;
-                    
+
                     questionInput.disabled = false;
                     askBtn.disabled = false;
-                    
+
                     addMessage('Documents chargés avec succès ! Vous pouvez maintenant poser vos questions.', 'assistant');
                 } else {
                     addMessage('Erreur lors du chargement : ' + data.error, 'assistant');
@@ -400,7 +404,7 @@
                 uploadBtn.textContent = 'Charger les documents';
             }
         });
-        
+
         // Display documents list
         function displayDocuments(documents) {
             documentsList.innerHTML = documents.map(doc => `
@@ -410,24 +414,24 @@
                 </div>
             `).join('');
         }
-        
+
         // Ask question
         async function askQuestion() {
             const question = questionInput.value.trim();
             if (!question) return;
-            
+
             addMessage(question, 'user');
             questionInput.value = '';
             questionInput.disabled = true;
             askBtn.disabled = true;
-            
+
             // Loading indicator
             const loadingDiv = document.createElement('div');
             loadingDiv.className = 'loading';
             loadingDiv.innerHTML = '<div class="spinner"></div>Analyse en cours...';
             chatBox.appendChild(loadingDiv);
             chatBox.scrollTop = chatBox.scrollHeight;
-            
+
             try {
                 const response = await fetch(`${API_URL}/analyze`, {
                     method: 'POST',
@@ -439,10 +443,10 @@
                         documents_text: documentsText
                     })
                 });
-                
+
                 const data = await response.json();
                 loadingDiv.remove();
-                
+
                 if (data.success) {
                     addMessage(data.answer, 'assistant');
                 } else {
@@ -457,12 +461,12 @@
                 questionInput.focus();
             }
         }
-        
+
         askBtn.addEventListener('click', askQuestion);
         questionInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') askQuestion();
         });
-        
+
         // Add message to chat
         function addMessage(content, type) {
             const messageDiv = document.createElement('div');
@@ -473,4 +477,5 @@
         }
     </script>
 </body>
+
 </html>
