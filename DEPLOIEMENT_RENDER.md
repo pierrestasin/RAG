@@ -19,10 +19,10 @@ Branch: main
 Root Directory: (laisser vide)
 Runtime: Python 3
 Build Command: pip install --upgrade pip && pip install -r requirements.txt
-Start Command: gunicorn pdf_analyzer_backend:app --bind 0.0.0.0:$PORT
+Start Command: ./start.sh
 ```
 
-⚠️ **IMPORTANT** : Utilisez Gunicorn (plus stable sur Render que Waitress)
+⚠️ **IMPORTANT** : Le script `start.sh` active automatiquement l'environnement virtuel
 
 ### 3. Variables d'environnement
 
