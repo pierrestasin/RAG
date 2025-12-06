@@ -495,6 +495,20 @@
                 if (data.success) {
                     modelsConfig = data.models;
                     currentModel = data.current_model;
+
+                    // Remplir dynamiquement le dropdown
+                    modelSelect.innerHTML = '';
+                    Object.keys(modelsConfig).forEach(modelKey => {
+                        const model = modelsConfig[modelKey];
+                        const option = document.createElement('option');
+                        option.value = modelKey;
+                        option.textContent = model.name;
+                        if (modelKey === currentModel) {
+                            option.textContent += ' (Recommandé)';
+                        }
+                        modelSelect.appendChild(option);
+                    });
+
                     modelSelect.value = currentModel;
                     updateModelInfo();
                 }
