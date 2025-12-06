@@ -245,6 +245,10 @@ RÉPONSE (avec citations de pages) :"""
     except Exception as e:
         error_message = str(e)
 
+        # Log l'erreur complète pour debugging
+        print(f"❌ Erreur lors de l'analyse: {error_message}", flush=True)
+        print(f"   Modèle utilisé: {selected_model}", flush=True)
+
         # Détecter les erreurs de quota
         if '429' in error_message or 'quota' in error_message.lower():
             return jsonify({
