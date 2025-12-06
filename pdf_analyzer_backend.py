@@ -18,21 +18,21 @@ genai.configure(api_key=GEMINI_API_KEY)
 
 # Configuration des modèles disponibles avec leurs prix
 MODELS_CONFIG = {
-    'gemini-1.5-flash': {
-        'name': 'Gemini 1.5 Flash',
+    'models/gemini-2.5-flash': {
+        'name': 'Gemini 2.5 Flash',
         'description': 'Rapide et économique - Idéal pour documents courts',
         'context_window': 1000000,
         'free_tier': {'rpm': 15, 'rpd': 1500, 'tpm': 1000000},
         'pricing': {'input': 0.075, 'output': 0.30}  # $ per million tokens
     },
-    'gemini-1.5-pro': {
-        'name': 'Gemini 1.5 Pro',
+    'models/gemini-2.5-pro': {
+        'name': 'Gemini 2.5 Pro',
         'description': 'Meilleur pour documents longs (200-300 pages)',
         'context_window': 2000000,
         'free_tier': {'rpm': 15, 'rpd': 1500, 'tpm': 2000000},
         'pricing': {'input': 1.25, 'output': 5.00}
     },
-    'gemini-2.0-flash-exp': {
+    'models/gemini-2.0-flash-exp': {
         'name': 'Gemini 2.0 Flash (Experimental)',
         'description': 'Dernière génération - Gratuit pendant preview',
         'context_window': 1000000,
@@ -42,7 +42,7 @@ MODELS_CONFIG = {
 }
 
 # Modèle par défaut
-current_model_name = 'gemini-1.5-pro'
+current_model_name = 'models/gemini-2.5-pro'
 model = genai.GenerativeModel(current_model_name)
 
 # Compteur d'utilisation (simple, en mémoire - reset à chaque redémarrage)

@@ -29,8 +29,10 @@ Start Command: ./start.sh
 Ajoutez cette variable d'environnement :
 
 ```
-GEMINI_API_KEY=AIzaSyDHABy9oay6mCGFrlhW8sXgyC0aFd4G-44
+GEMINI_API_KEY=votre_cle_api_ici
 ```
+
+⚠️ **Générez votre clé sur** : https://aistudio.google.com/app/apikey
 
 **⚠️ IMPORTANT** : Ne commitez JAMAIS le fichier .env sur Git !
 
