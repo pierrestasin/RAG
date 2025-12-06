@@ -19,8 +19,10 @@ Branch: main
 Root Directory: (laisser vide)
 Runtime: Python 3
 Build Command: ./render_build.sh
-Start Command: python run_waitress.py
+Start Command: python3 run_waitress.py
 ```
+
+⚠️ **IMPORTANT** : Utilisez bien `python3` et non `python` dans le Start Command !
 
 ### 3. Variables d'environnement
 
