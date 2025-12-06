@@ -15,8 +15,8 @@ CORS(app)  # Permet les requêtes depuis le frontend
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', 'YOUR_API_KEY_HERE')
 genai.configure(api_key=GEMINI_API_KEY)
 
-# Utilise Gemini 1.5 Pro pour les longs documents
-model = genai.GenerativeModel('gemini-2.5-pro')
+# Utilise Gemini 1.5 Pro pour les longs documents (meilleurs quotas gratuits)
+model = genai.GenerativeModel('gemini-1.5-pro')
 
 @app.route('/upload', methods=['POST'])
 def upload_pdf():
