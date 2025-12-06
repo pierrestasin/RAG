@@ -4,6 +4,9 @@ import google.generativeai as genai
 import PyPDF2
 import io
 import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Charge les variables du fichier .env
 
 app = Flask(__name__)
 CORS(app)  # Permet les requêtes depuis le frontend
@@ -13,7 +16,7 @@ GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', 'YOUR_API_KEY_HERE')
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Utilise Gemini 1.5 Pro pour les longs documents
-model = genai.GenerativeModel('gemini-1.5-pro-latest')
+model = genai.GenerativeModel('gemini-2.5-pro')
 
 @app.route('/upload', methods=['POST'])
 def upload_pdf():
@@ -99,4 +102,4 @@ def health():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)

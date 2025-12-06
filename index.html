@@ -317,7 +317,7 @@
         // En local, on utilise localhost:5000
         // En production, remplacez par l'URL de votre backend Render
         const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-        const API_URL = IS_LOCAL ? 'http://localhost:5000' : 'https://rag-lqyi.onrender.com';
+        const API_URL = IS_LOCAL ? 'http://localhost:5001' : 'https://rag-lqyi.onrender.com';
 
         console.log(`Environment: ${IS_LOCAL ? 'Local' : 'Production'}`);
         console.log(`API URL: ${API_URL}`);
